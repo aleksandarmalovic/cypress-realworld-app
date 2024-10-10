@@ -1,0 +1,7 @@
+node_modules
+package-lock.json
+package.json
+cypress/fixtures/example.json
+cypress/support/e2e.js
+cypress/support/commands.js
+.vscode/launch.json
