@@ -133,5 +133,5 @@ Cypress.Commands.add('createTransaction', (amount, note, searchTerm) => {
   cy.get('[data-test="transaction-create-submit-payment"]').click();
   cy.get('[data-test="new-transaction-create-another-transaction"]').click();
   cy.get('[data-test="user-list-search-input"]').type(searchTerm, { force: true });
-  cy.get('[data-test="users-list"]').contains(testUser.username).first().click({ force: true })
+  cy.get('[data-test="users-list"]').contains('Ted Parisian').first().click({ force: true })
 })

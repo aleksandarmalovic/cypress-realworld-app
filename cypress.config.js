@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
     e2e: {
-      baseUrl: 'http://localhost:3000',
+      baseUrl: 'http://localhost:3000'
     },
 
     env: {
@@ -22,14 +22,6 @@ module.exports = defineConfig({
         routingNubmer: 'test202rn',
         accountNubmer: 'test202an'
       }
-      // ,
-
-      // createBankCredentials2 :{
-      //   bankName: 'test200bankaccname',
-      //   routingNubmer: 'test200rn',
-      //   accountNubmer: 'test200an'
-
-      // }
     }    
 })
 

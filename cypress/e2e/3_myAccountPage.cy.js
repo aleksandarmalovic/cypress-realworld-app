@@ -16,7 +16,7 @@ beforeEach(() => {
     cy.dinamicBtnClick(createBankPopUpModal.nextBtn)
 })
 
-    it.only('Making changes to my account page and verify data is preserved', () => {
+    it('Making changes to my account page and verify data is preserved', () => {
         cy.get(myAccount.myAccountSection).click()
         cy.get(myAccount.firstNameInputField).clear().type('edit test')
         cy.get(myAccount.lastNameInputField).clear().type('edit test')

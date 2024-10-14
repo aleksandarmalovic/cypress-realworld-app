@@ -47,61 +47,35 @@ describe('Validate random Transaction', () => {
         .should('contain', '2')
     })
 
-    it.only('Validate multiple transaction', () => {
+    it('Validate multiple transaction', () => {
 
         const transactionsValue = [
-            { amount: '50', note: 'Payment 1', searchTerm: 'aleksandar' },
-            { amount: '75', note: 'Payment 2', searchTerm: 'aleksandar' },
-            { amount: '100', note: 'Payment 3', searchTerm: 'aleksandar' },
+            { amount: '50', note: 'Payment 1', searchTerm: 'Ted Parisian' },
+            { amount: '75', note: 'Payment 2', searchTerm: 'Ted Parisian' },
+            { amount: '100', note: 'Payment 3', searchTerm: 'Ted Parisian' },
           ];
-        // cy.get(transactions.newTransactionBtn).click()
-        // cy.get(transactions.searchBar)
-        // .click({force: true})
-        // .type('aleksandar')
-        // cy.get(transactions.usersList)
-        // .contains('aleksandar')
-        // .first()
-        // .click({force: true})
+        cy.get(transactions.newTransactionBtn).click()
+        cy.get(transactions.searchBar)
+        .click({force: true})
+        .type( 'Ted Parisian' )
+        cy.get(transactions.usersList)
+        .contains( 'Ted Parisian' )
+        .first()
+        .click({force: true})
 
-        // transactionsValue.forEach((transaction) => {
-        //     cy.createTransaction(transaction.amount, transaction.note, transaction.searchTerm);
-        //   });
+        transactionsValue.forEach((transaction) => {
+            cy.createTransaction(transaction.amount, transaction.note, transaction.searchTerm);
+          });
 
-        // cy.get(transactions.homeSectionBtn).click()
-        // cy.get(transactions.mineTransactionBtn).click()
-        cy.get(transactions.amountFilter).click({force:true})
+        cy.get(transactions.homeSectionBtn).click()
+        cy.get(transactions.mineTransactionBtn).click()
         cy.wait(2000)
-        
-        // cy.get('[data-test="transaction-list-filter-amount-range-slider"]')
-        // .invoke('attr', 'style', 'left: 13%; width: 87%')
-        cy.get('input[data-index="0"]')
-        .eq(0)
-        .invoke('attr', 'style', 'left: 13%;')
-        .invoke('attr', 'aria-valuenow', '13')
-        cy.wait(2000)
-        cy.get('input[data-index="0"]')
-        .invoke('attr', 'style', 'left: 13%;')
-        cy.wait(2000)
-        cy.get('input[data-index="0"]')
-        .eq(0)
-        .invoke('attr', 'style', 'left: 13%;')
-        .invoke('attr', 'aria-valuenow', '13')
-        // .invoke('attr', 'value', '13')
-        
-        // .trigger('change')
-        cy.get('input[data-index="0"]')
-        .invoke('attr', 'style', 'left: 13%;')
+        cy.get(transactions.transactionList)
+        .should('contain', '50')
+        .and('contain', '75')
+        .and('contain', '100')
 
-        // cy.get(transactions.amountFilterSlider)
-        // .invoke('aria-valuenow', '30') // Set slider value to 50 (range between 0-100 or whatever the slider's range is)
-        // .trigger('input');
-        // cy.get(transactions.amountFilterSlider)
-        // .invoke('attr','aria-valuenow', '60') // Set slider value to 50 (range between 0-100 or whatever the slider's range is)
-        // .trigger('input');
-        // cy.get(transactions.transactionList)
-        // .should('contain', '50')
-        // .and('contain', '75')
-        // .and('contain', '100')
+    
     })
 
 })
