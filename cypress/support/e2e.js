@@ -18,10 +18,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import './objects/1loginPage'
-import './objects/2homePage'
-import './objects/3myAccPage'
-import './objects/bankAccountsPage'
 import './Locators/1loginLocators'
 import './Locators/2applicationLocators'
 

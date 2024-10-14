@@ -9,7 +9,7 @@ describe('Validate signUp form', () => {
         cy.visit('/signup')
     })
 
-    it.only('Validate minimum 4 characters password message', () => {
+    it('Validate minimum 4 characters password message', () => {
         cy.contains('Password must contain at least 4 characters').should('not.exist')
         cy.get(signupLocators.password).type('123')
         cy.contains('Password must contain at least 4 characters').should('exist')
@@ -132,12 +132,10 @@ describe('Successfully SIGN UP', () => {
         cy.visit('/signup')
     })
 
-    it.only('Sign up with valid credentials', () => {
+    it('Sign up with valid credentials', () => {
         cy.signUpType(testUser.firstname, testUser.lastname, testUser.username, testUser.password, testUser.confirmpassword)
         cy.get(signupLocators.signupButton).click()
         cy.url().should('eq', 'http://localhost:3000/signin')
     })
-
-    
 
 })
