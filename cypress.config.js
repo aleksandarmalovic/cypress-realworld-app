@@ -6,13 +6,30 @@ module.exports = defineConfig({
     },
 
     env: {
+
+      apiUrl: 'http://localhost:3001',
+    
       test_user :{
-        firstname: 'aleksandar',
-        lastname: 'malovic',
-        username: 'test123',
-        password: 'proba123',
-        confirmpassword: 'proba123'
+        firstname: 'fn_test204',
+        lastname: 'lm_test204',
+        username: 'un_test204',
+        password: 'pw_test204',
+        confirmpassword: 'pw_test204'
+      },
+
+      createBankCredentials :{
+        bankName: 'test202bankaccname',
+        routingNubmer: 'test202rn',
+        accountNubmer: 'test202an'
       }
-    }
+      // ,
+
+      // createBankCredentials2 :{
+      //   bankName: 'test200bankaccname',
+      //   routingNubmer: 'test200rn',
+      //   accountNubmer: 'test200an'
+
+      // }
+    }    
 })
 

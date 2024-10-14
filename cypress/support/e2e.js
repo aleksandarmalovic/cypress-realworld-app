@@ -23,6 +23,7 @@ import './objects/2homePage'
 import './objects/3myAccPage'
 import './objects/bankAccountsPage'
 import './Locators/1loginLocators'
+import './Locators/2applicationLocators'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

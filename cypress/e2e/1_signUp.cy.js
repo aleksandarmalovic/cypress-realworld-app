@@ -1,6 +1,4 @@
-import LoginPage from '../support/objects/1loginPage'
 import { signupLocators } from '../support/Locators/1loginLocators'
-import { signinLocators } from '../support/Locators/1loginLocators'
 import { beforeEach } from 'mocha'
 
 const testUser = Cypress.env("test_user")
@@ -11,7 +9,7 @@ describe('Validate signUp form', () => {
         cy.visit('/signup')
     })
 
-    it('Validate minimum 4 characters password message', () => {
+    it.only('Validate minimum 4 characters password message', () => {
         cy.contains('Password must contain at least 4 characters').should('not.exist')
         cy.get(signupLocators.password).type('123')
         cy.contains('Password must contain at least 4 characters').should('exist')
@@ -134,7 +132,7 @@ describe('Successfully SIGN UP', () => {
         cy.visit('/signup')
     })
 
-    it('Sign up with valid credentials', () => {
+    it.only('Sign up with valid credentials', () => {
         cy.signUpType(testUser.firstname, testUser.lastname, testUser.username, testUser.password, testUser.confirmpassword)
         cy.get(signupLocators.signupButton).click()
         cy.url().should('eq', 'http://localhost:3000/signin')

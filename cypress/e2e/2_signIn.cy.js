@@ -1,12 +1,13 @@
 import { signinLocators } from "../support/Locators/1loginLocators";
 import { beforeEach } from 'mocha'
+
 const testUser = Cypress.env("test_user")
 
 describe('Validate fields and buttons', () => {
 
 beforeEach(() => {
     cy.visit('/signin')
-  });
+});
 
     it('Validate signUp redirection btn functionality', () => {
         cy.get(signinLocators.signUpRedirectionBtn)
@@ -65,13 +66,21 @@ beforeEach(() => {
         cy.get('#password').clear()
         cy.get(signinLocators.signinButton).should('be.disabled')
     })
+
+    it('Validate that SIGN IN button is not clickable when only Username input field is empty', () => {
+        cy.signInFilled()
+        cy.get(signinLocators.signinButton).should('be.enabled')
+        cy.get(signinLocators.username).clear()
+        cy.get(signinLocators.signinButton).should('be.disabled')
+    })
+
 })
 
 describe('Validate signIn form', () => {
 
-    beforeEach(() => {
-        cy.visit('/signin');
-    });
+beforeEach(() => {
+    cy.visit('/signin');
+});
 
     it('Validate that user cannot log in with wrong (random) credentials', () => {
         const randomString = Math.random().toString(36).substring(2, 10);
@@ -81,21 +90,7 @@ describe('Validate signIn form', () => {
         cy.url().should('eq', 'http://localhost:3000/signin')
     })
 
-    it('Validate that SIGN UP button is not clickable when only Username input field is empty', () => {
-        cy.signInFilled()
-        cy.get(signinLocators.signinButton).should('be.enabled')
-        cy.get(signinLocators.username).clear()
-        cy.get(signinLocators.signinButton).should('be.disabled')
-    })
-
-
-    it('Validate that sign in button is not clickable if password have less than 4 characters', () => {
-        //text
-    })
-
     it('Validate successufuly sign in', () => {
-        cy.signInType('test1234', 'test1234')
-        cy.get(signinLocators.signinButton).click()
-        cy.get('[data-test="user-onboarding-next"]').click()
-    })
+        cy.successfullSignin(testUser.username, testUser.password)
+    })  
 })
